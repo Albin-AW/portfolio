@@ -1,0 +1,58 @@
+$black: #1e1e1e;
+$white: #d4d4d4;
+
+@font-face 
+{
+    font-family: 'DOS VGA';
+    src: url('../Font/perfect_dos_vga_437/Perfect DOS VGA 437 Win.ttf') format('truetype');
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: $black;
+    color: $white;
+    font-family: 'DOS VGA', monospace;
+}
+
+.console 
+{
+    position: relative;
+    margin: 3em 0 0 3em;
+    font-size: 2em;
+}
+
+.console-container 
+{
+    position: absolute;
+    line-height: 2em;
+    
+    user-select: none;
+}
+
+.console-container:active
+{
+    opacity: 1;
+}
+
+.cursor 
+{
+    display: inline-block;
+    width: 0.25em;
+    height: 1.2em;
+    background-color: $white;
+    vertical-align: middle;
+    animation: 
+        blink 1s step-end infinite;
+}
+
+@keyframes blink 
+{
+    50% { opacity: 0; }
+}
