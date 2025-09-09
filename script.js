@@ -21,20 +21,54 @@ const speed = 1
 let inputEnabled = false
 let inputTarget = null
 let inputCursor = null
-let resume = null   
 
-function typeLine(lineIndex) 
+function resetConsole() 
 {
-    if (lineIndex >= lines.length) 
+    inputEnabled = false
+    if (inputCursor == true) 
     {
-        return
+        inputCursor.remove()
     }
-    typeTextLine(lines[lineIndex], () => typeLine(lineIndex + 1))
+    document.querySelectorAll('.console-text-container').forEach(container => 
+    {
+        container.textContent = ''
+    })
+}
+
+function typeLines(list) 
+{
+    let index = 0
+
+    function next() 
+    {
+        if (index >= list.length) 
+        {
+            return
+        }
+
+        let line = list[index]
+        let last = index
+        index === list.length - 1
+
+        if (last == true) 
+        {
+            line.mode = 'denied-last'
+        }
+
+            // type the current line
+        typeTextLine(line, function() 
+        {
+            index++
+            next()
+        })
+    }
+
+    next()
 }
 
 setTimeout(() =>
 {
-    typeLine(0)
+    typeLines(lines)
 }, 800)
 
 document.addEventListener('keydown', function(event)
@@ -71,37 +105,9 @@ document.addEventListener('keydown', function(event)
 
 function denied() 
 {
-    inputEnabled = false
-    if (inputCursor == true)
-    {
-        inputCursor.remove()
-    }
-
-        // clear all previous text
-    document.querySelectorAll('.console-text-container').forEach(container => 
-    {
-        container.textContent = ''
-    })
-
-        // type denied lines
-        // STOLEN CODE: REDO
-    let deniedIndex = 0
-    function nextDenied() 
-    {
-        if (deniedIndex >= deniedLines.length) return
-        // Mark last denied line for cursor
-        const isLast = deniedIndex === deniedLines.length - 1
-        typeTextLine(
-            { ...deniedLines[deniedIndex], mode: isLast ? 'denied-last' : undefined },
-            () => {
-                deniedIndex++;
-                nextDenied();
-            }
-        );
-    }
-    nextDenied();
+    resetConsole()
+    typeLines(deniedLines)
 }
-
 
     // position lines
 document.querySelectorAll('.console-container').forEach((line, i) =>
@@ -109,54 +115,53 @@ document.querySelectorAll('.console-container').forEach((line, i) =>
     line.style.top = `${i * 2}em`
 })
 
-function typeTextLine({ element, text, mode }, onDone) 
+function typeTextLine(line, onDone) 
 {
+        // extract info
+    let element = line.element
+    let text = line.text
+    let mode = line.mode
+
     const textContainer = element.querySelector('.console-text-container')
     const cursor = document.createElement('span')
     cursor.classList.add('cursor')
     textContainer.appendChild(cursor)
 
-    let i = 0;
+    let i = 0
     function typeNextLetter() 
     {
         cursor.insertAdjacentText('beforebegin', text[i])
         i++
         if (i < text.length) 
         {
-            setTimeout(typeNextLetter, speed);
+            setTimeout(typeNextLetter, speed)
         } 
         else 
         {
             if (mode === 'input') 
             {
-                    // prepare user input
-                const inputSpan = document.createElement('span');
-                inputSpan.className = 'console-input';
-                cursor.insertAdjacentElement('beforebegin', inputSpan);
+                let inputSpan = document.createElement('span')
+                inputSpan.className = 'console-input'
+                cursor.insertAdjacentElement('beforebegin', inputSpan)
 
-                inputTarget = inputSpan;
-                inputCursor = cursor;
-                inputEnabled = true;
-
-                    // store how to continue when user presses Enter
-                resume = function () 
-                {
-                    inputEnabled = false
-                    inputCursor.remove()
-                    if (onDone) onDone()
-                }
+                inputTarget = inputSpan
+                inputCursor = cursor
+                inputEnabled = true
                 return
             }
+
             setTimeout(() => 
             {
-                  // remove cursor if not last line
-                if (!mode || mode !== 'denied-last') 
+                if (mode !== 'denied-last') 
                 {
-                    cursor.remove();
+                    cursor.remove()
                 }
-                if (onDone) onDone();
-            }, 800);
+                if (onDone)
+                {
+                    onDone()
+                } 
+            }, 800)
         }
     }
-    typeNextLetter();
+    typeNextLetter()
 }
