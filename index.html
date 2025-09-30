@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <script defer src="themes.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="#" alt="Logo">
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#">Home</a></li>
+                
+                <li class="nav-item dropdown">
+                    <button class="dropdown-toggle">About</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">TEST1</a></li>
+                        <li><a href="#">TEST2</a></li>
+                    </ul>
+
+                    <li class="nav-item"><a href="#">Services</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="theme-container">
+        <div class="theme-options">
+            <button class="theme-btn" data-theme="BLACK">BLACK</button>
+            <button class="theme-btn active" data-theme="WHITE">WHITE</button>
+        </div>
+        <button class="theme-cog" aria-label="Open Theme Options">⚙️</button>
+    </div>
+</body>
+</html>
+

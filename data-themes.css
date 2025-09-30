@@ -1,0 +1,38 @@
+:root {
+    --white: #ffffff;
+    --whitehover: #f0f0f0;
+    --black: #121212;
+    --blackhover: #1f1f1f;
+    --darkgrey: #444444;
+    --lightgrey: #e0e0e0;
+}
+
+/* ================= WHITE THEME ================= */
+body[data-theme="WHITE"] {
+    --bg: var(--white);
+    --inverse-bg: var(--black);
+    --header-bg: var(--white);
+    --text: #222222;
+    --hover: var(--whitehover);
+    --inverse-text: var(--white);
+    --border-c: var(--lightgrey);
+    --box-shadow-c-10o: rgba(0, 0, 0, 0.1);
+    --box-shadow-c-25o: rgba(0, 0, 0, 0.25);
+    --box-shadow-c-40o: rgba(0, 0, 0, 0.40);
+    --box-shadow-c-75o: rgba(0, 0, 0, 0.75);
+}
+
+/* ================= BLACK THEME ================= */
+body[data-theme="BLACK"] {
+    --bg: var(--black);
+    --inverse-bg: var(--white);
+    --header-bg: #1a1a1a;
+    --text: var(--white);
+    --hover: var(--blackhover);
+    --inverse-text: var(--black);
+    --border-c: var(--darkgrey);
+    --box-shadow-c-10o: rgba(255, 255, 255, 0.1);
+    --box-shadow-c-25o: rgba(255, 255, 255, 0.25);
+    --box-shadow-c-40o: rgba(255, 255, 255, 0.40);
+    --box-shadow-c-75o: rgba(255, 255, 255, 0.75);
+}

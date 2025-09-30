@@ -1,8 +1,0 @@
-
-    1. 
-        Typewriter New Paraphraph Line
-        Issue:
-            New paragraph does not go 
-            on a new line.
-        File Location of the Issue: script.js
-        Time Spent: ~4h, 30 min
