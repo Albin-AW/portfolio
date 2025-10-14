@@ -18,7 +18,7 @@ body {
 }
 
 #container { 
-    width: 140rem;
+    width: 145%;
     position: absolute;
     aspect-ratio: 1;
     display: grid;
@@ -50,33 +50,34 @@ body {
 
 .tile { 
     border: 1px solid var(--darkgrey);
-    transition: background-color 1500ms;
+    transition: background-color 1000ms;
 }
 
 .tile:hover { 
     transition-duration: 0ms;
 }
 
-.tile:nth-child(4n):hover,
-.tile:nth-child(7n + 6):hover,
-.tile:nth-child(11n + 1):hover {
-    background-color: var(--red);
+.tile:nth-child(7n):hover { background-color: var(--red); }
+
+.tile:nth-child(7n + 1):hover { background-color: var(--orange); }
+
+.tile:nth-child(7n + 2):hover {
+    background-color: var(--yellow);
 }
 
-.tile:nth-child(4n + 1):hover,
-.tile:nth-child(7n):hover,
-.tile:nth-child(11n + 4):hover {
-    background-color: var(--blue);
-}
-
-.tile:nth-child(4n + 2):hover, 
-.tile:nth-child(7n + 3):hover, 
-.tile:nth-child(11n + 7):hover { 
+.tile:nth-child(7n + 3):hover {
     background-color: var(--green);
 }
 
-.tile:nth-child(4n + 3):hover, 
-.tile:nth-child(7n + 5):hover, 
-.tile:nth-child(11n + 10):hover { 
-    background-color: var(--yellow);
+.tile:nth-child(7n + 4):hover {
+    background-color: var(--teal);
 }
+
+.tile:nth-child(7n + 5):hover {
+    background-color: var(--blue);
+}
+
+.tile:nth-child(7n + 6):hover {
+    background-color: var(--purple);
+}
+

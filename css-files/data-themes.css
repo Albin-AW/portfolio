@@ -1,15 +1,18 @@
 :root {
     --white: #ffffff;
     --whitehover: #f0f0f0;
-    --black: #121212;
-    --blackhover: #1f1f1f;
-    --darkgrey: #444444;
-    --lightgrey: #e0e0e0;
+    --black: #0a0a0a;
+    --blackhover: #1a1a1a;
+    --darkgrey: #2a2a2a;
+    --lightgrey: #d0d0d0;
 
     --red: #F87171;
-    --blue: #38BDF8;
-    --green: #48DE80;
-    --yellow: #FDE047;
+    --orange: #FB923C;
+    --yellow: #FACC15;
+    --green: #4ADE80;
+    --teal: #2DD4BF;
+    --blue: #60A5FA;
+    --purple: #A78BFA;
 }
 
 /* ================= WHITE THEME ================= */
