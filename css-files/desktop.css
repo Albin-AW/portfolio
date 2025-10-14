@@ -58,26 +58,9 @@ body {
 }
 
 .tile:nth-child(7n):hover { background-color: var(--red); }
-
 .tile:nth-child(7n + 1):hover { background-color: var(--orange); }
-
-.tile:nth-child(7n + 2):hover {
-    background-color: var(--yellow);
-}
-
-.tile:nth-child(7n + 3):hover {
-    background-color: var(--green);
-}
-
-.tile:nth-child(7n + 4):hover {
-    background-color: var(--teal);
-}
-
-.tile:nth-child(7n + 5):hover {
-    background-color: var(--blue);
-}
-
-.tile:nth-child(7n + 6):hover {
-    background-color: var(--purple);
-}
-
+.tile:nth-child(7n + 2):hover { background-color: var(--yellow); }
+.tile:nth-child(7n + 3):hover { background-color: var(--green); }
+.tile:nth-child(7n + 4):hover { background-color: var(--teal); }
+.tile:nth-child(7n + 5):hover { background-color: var(--blue); }
+.tile:nth-child(7n + 6):hover { background-color: var(--purple); }
