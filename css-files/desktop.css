@@ -1,0 +1,82 @@
+@import 'data-themes.css';
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+    perspective: 2000px; 
+    overflow: hidden;
+}
+
+#container { 
+    width: 140rem;
+    position: absolute;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(40, 1fr);
+    grid-template-rows: repeat(40, 1fr);
+    transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+}
+
+#container:after, 
+#container:before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    inset: 0px;
+}
+
+#container:before {
+    z-index: 2;
+    background-image: url('https://assets.codepen.io/1468070/plus-pattern-center.png');
+    background-size: 5%;
+    background-repeat: repeat;
+    opacity: 0.25;    
+}
+
+#container:after {
+  z-index: 3;
+  background: radial-gradient(circle, transparent 25%, rgb(var(--background-rgb)) 80%);
+}
+
+.tile { 
+    border: 1px solid var(--darkgrey);
+    transition: background-color 1500ms;
+}
+
+.tile:hover { 
+    transition-duration: 0ms;
+}
+
+.tile:nth-child(4n):hover,
+.tile:nth-child(7n + 6):hover,
+.tile:nth-child(11n + 1):hover {
+    background-color: var(--red);
+}
+
+.tile:nth-child(4n + 1):hover,
+.tile:nth-child(7n):hover,
+.tile:nth-child(11n + 4):hover {
+    background-color: var(--blue);
+}
+
+.tile:nth-child(4n + 2):hover, 
+.tile:nth-child(7n + 3):hover, 
+.tile:nth-child(11n + 7):hover { 
+    background-color: var(--green);
+}
+
+.tile:nth-child(4n + 3):hover, 
+.tile:nth-child(7n + 5):hover, 
+.tile:nth-child(11n + 10):hover { 
+    background-color: var(--yellow);
+}
