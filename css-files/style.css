@@ -5,43 +5,43 @@
 }  
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--bg);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 8vw;
-  overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 8vw;
+    overflow: hidden;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 5rem; /* even spacing between headings */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5rem; 
 }
 
-/* ================= TYPOGRAPHY ================= */
+
 h1 {
-  font-family: 'DOS VGA', monospace;
-  color: var(--text);
-  font-size: clamp(3rem, 10vw, 12rem);
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+    font-family: 'DOS VGA', monospace;
+    color: var(--text);
+    font-size: clamp(3rem, 10vw, 12rem);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
 }
 
 h1:hover {
-  background-color: var(--inverse-bg);
-  color: var(--inverse-text);
+    background-color: var(--inverse-bg);
+    color: var(--inverse-text);
 }
