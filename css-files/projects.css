@@ -1,0 +1,6 @@
+@import 'data-themes.css';
+@font-face {
+    font-family: 'DOS VGA';
+    src: url('../Font/perfect_dos_vga_437/Perfect DOS VGA 437 Win.ttf') format('truetype');
+} 
+
