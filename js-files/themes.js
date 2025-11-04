@@ -1,38 +1,19 @@
-
-    /*
-    ################################
-    ######## Theme Settings ########
-    ################################
-    */
-
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body
-    const themeButtons = document.querySelectorAll('.theme-btn')
-    const themeContainer = document.querySelector('.theme-container')
-    const cog = document.querySelector('.theme-cog')
+    const themeBtn = document.getElementById('theme-btn')
 
-    // loads theme - default white
-    let savedTheme = localStorage.getItem('theme') || 'WHITE'
-    setTheme(savedTheme)
-    themeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const theme = button.getAttribute('data-theme')
-            setTheme(theme)
-            localStorage.setItem('theme', theme)
-        })
+    // load saved theme (default WHITE)
+    let currentTheme = localStorage.getItem('theme') || 'WHITE'
+    setTheme(currentTheme)
+
+    themeBtn.addEventListener('click', () => {
+        currentTheme = currentTheme === 'WHITE' ? 'BLACK' : 'WHITE'
+        setTheme(currentTheme)
+        localStorage.setItem('theme', currentTheme)
     })
 
-    // toggle theme menu 
-    cog.addEventListener('click', () => {
-        themeContainer.classList.toggle('active')
-    })
-
-    // sets theme
     function setTheme(theme) {
         body.setAttribute('data-theme', theme)
-        themeButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-theme') === theme)
-        })
+        themeBtn.textContent = theme === 'WHITE' ? '🌙' : '☀️'
     }
 })
-

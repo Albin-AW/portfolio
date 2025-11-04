@@ -29,7 +29,6 @@ main {
     gap: 5rem; 
 }
 
-
 h1 {
     font-family: 'DOS VGA', monospace;
     color: var(--text);
@@ -37,11 +36,48 @@ h1 {
     letter-spacing: 0.05em;
     cursor: pointer;
     transition: color 0.3s ease, background-color 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    padding: 2rem 4rem;
+    border-radius: 2rem;
 }
 
 h1:hover {
     background-color: var(--inverse-bg);
     color: var(--inverse-text);
 }
+
+#links {
+    text-decoration: none;
+}
+
+/* ================= THEME BUTTON ================= */
+
+.theme-container {
+    position: fixed;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+#theme-btn {
+    width: clamp(120px, 18vw, 280px);
+    height: clamp(120px, 18vw, 280px);
+    font-size: clamp(3rem, 6vw, 8rem);
+    background-color: var(--inverse-bg);
+    color: var(--inverse-text);
+    border: clamp(3px, 0.6vw, 5px) solid var(--border-c);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 clamp(10px, 2vw, 25px) var(--box-shadow-c-40o);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-btn:hover {
+    transform: scale(1.15);
+    background-color: var(--hover);
+    box-shadow: 0 0 clamp(20px, 3vw, 40px) var(--box-shadow-c-75o);
+}
+

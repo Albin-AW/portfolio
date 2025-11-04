@@ -21,11 +21,10 @@ document.querySelectorAll('h1').forEach(h1 => {
             target.innerText = originalText
             .split('')
             .map((letter, index) => {         
-            
-            if (index < iteration) {
-                return originalText[index]
-            }
-            return letters[Math.floor(Math.random() * 26)]
+                if (index < iteration) {
+                    return originalText[index]
+                }
+                return letters[Math.floor(Math.random() * 26)]
             })
             .join('')
 
