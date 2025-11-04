@@ -8,3 +8,8 @@ document.getElementById("cards").onmousemove = e => {
         card.style.setProperty("--mouse-y", `${y}px`);
     }
 }
+
+const backBtn = document.getElementById('back-btn')
+backBtn.addEventListener('click', () => {
+    window.location.href = 'index.html'
+})

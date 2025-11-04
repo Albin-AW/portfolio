@@ -8,6 +8,13 @@
     --card-color: rgb(23, 23, 23);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DOS VGA', monospace;
+}
+
 body {
     align-items: center;
     background-color: var(--bg);
@@ -15,9 +22,7 @@ body {
     flex-direction: column;
     height: 100vh;
     justify-content: center;
-    margin: 0;
     overflow: hidden;
-    padding: 0;
 }
 
 /* --- BACK BUTTON --- */
@@ -31,21 +36,30 @@ body {
 #back-btn {
     font-family: 'DOS VGA', monospace;
     background-color: var(--inverse-bg);
-    color: var(--inverse-text);  
     border: clamp(2px, 0.3vw, 4px) solid var(--border-c);
-    border-radius: 1rem;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    border-radius: clamp(0.5rem, 1vw, 1rem);
+    padding: clamp(0.25rem, 1vw, 1rem) clamp(1.25rem, 2.25vw, 2.25rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5ch;
 }
 
 #back-btn:hover {
     background-color: var(--hover);
-    color: var(--inverse-text);
     transform: scale(1.05);
 }
 
+#back-text {
+    color: var(--inverse-text);
+    transition: color 0.3s ease;
+}
+
+#back-btn:hover #back-text {
+    color: var(--text);
+}
 
 /* --- THEME BUTTON --- */
 .theme-container {
@@ -71,8 +85,6 @@ body {
     background-color: var(--hover);
 }
 
-
-
 /* --- CARDS --- */
 #cards {
     display: flex;
@@ -92,10 +104,10 @@ body {
     border-radius: 10px;
     cursor: pointer;
     display: flex;
-    height: 260px;
     flex-direction: column;
     position: relative;
-    width: 300px;
+    width: clamp(250px, 30%, 300px);
+    height: clamp(220px, 25vh, 260px);
 }
 
 .card:hover::before {
